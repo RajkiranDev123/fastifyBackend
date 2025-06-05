@@ -6,7 +6,7 @@ async function getAllUsers(request, reply) {
     reply.send(users);
   } catch (error) {
     console.log("error==>",error)
-    reply.status(500).send(error);
+    reply.status(500).send(error);//automatically sends error.message
   }
 }
 async function getUserById(request, reply) {
