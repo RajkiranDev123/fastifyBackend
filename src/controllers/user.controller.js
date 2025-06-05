@@ -5,6 +5,7 @@ async function getAllUsers(request, reply) {
     const users = await User.find();
     reply.send(users);
   } catch (error) {
+    console.log("error==>",error)
     reply.status(500).send(error);
   }
 }
