@@ -1,15 +1,17 @@
+require("dotenv").config();
+
 const fastify = require("fastify")({ logger: true });
 const mongoose = require("mongoose");
-require("dotenv").config();
 
 // Import my routes
 const userRoutes = require("./routes/user.routes");
 
 // Connect to my database
+console.log(process.env.DATABASE_URL)
 mongoose
-    .connect(process.env.DATABASE_URL)
+    .connect("mongodb+srv://raje:rajdb@rajcluster.ypsslv5.mongodb.net/fastify1?retryWrites=true&w=majority&appName=rajcluster")
     .then(() => console.log("Connected to the database"))
-    .catch((e) => console.log("Error connecting to database", e));
+    .catch((e) => console.log("Error connecting to database", e.message));
 
 
 
